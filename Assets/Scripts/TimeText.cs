@@ -56,6 +56,13 @@ public class TimeText : MonoBehaviour
         alarmTime.minute = minute;
         isAlarm = false;
     }
+
+    public void SetAlarm(int hour, int minute) {
+        alarmTime.hour = hour;
+        alarmTime.minute = minute;
+        isAlarm = false;
+        backgroundImage.color = Color.black;
+    }
 }
 
 
