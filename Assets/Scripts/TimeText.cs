@@ -14,6 +14,7 @@ public class TimeText : MonoBehaviour
     public AlarmTime alarmTime;
     public Color alarmColor = Color.green;
     private bool isAlarm = false;
+    public GameObject offButton;
 
 
     public float updateSeconds = 5;
@@ -46,6 +47,7 @@ public class TimeText : MonoBehaviour
         DateTime now = DateTime.Now;
         if (now.Hour == alarmTime.hour && now.Minute == alarmTime.minute) {
             isAlarm = true;
+            offButton.SetActive(true);
             notificationAudio.Play();
         }
     }
@@ -62,6 +64,11 @@ public class TimeText : MonoBehaviour
         alarmTime.minute = minute;
         isAlarm = false;
         backgroundImage.color = Color.black;
+    }
+
+    public void StopAlarm() {
+        offButton.SetActive(false);
+        isAlarm = false;
     }
 }
 
